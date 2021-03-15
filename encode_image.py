@@ -12,6 +12,7 @@ import torch.optim as optim
 
 from sefa.models import parse_gan_type
 from utils import load_generator, to_tensor, parse_gan_type, postprocess
+from fastprogress import progress_bar
 
 device = "cuda:0" if torch.cuda.is_available() else "cpu"
 
@@ -46,7 +47,7 @@ def optimize_style(source_image, model, model_name, gan_type, dlatent, iteration
     w = to_tensor(dlatent).requires_grad_()
     optimizer = optim.Adam({w}, lr=0.01, betas=(0.9, 0.999), eps=1e-8)
 
-    for i in range(iteration):
+    for i in range(progress_bar(iteration)):
         optimizer.zero_grad()
         synth_img = forward(model, gan_type, w)
         synth_img = (synth_img + 1.0) / 2.0
