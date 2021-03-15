@@ -4,6 +4,8 @@ The repository contains GAN-based image editing.
 
 Demo is avaiable on [Colab](https://colab.research.google.com/github/raven38/image_edit/blob/master/image_edit_demo.ipynb).
 
+![demo](./demo.gif)
+
 ## Interface
 
 We also provide an interface for interactive editing based on StreamLit. This interface can be locally launched with 
