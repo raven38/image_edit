@@ -28,7 +28,7 @@ def forward(model, gan_type, code):
     return image
 
 
-def optimize_style(source_image, model, model_name, gan_type, dlatent, iteration, pb):
+def optimize_style(source_image, model, model_name, gan_type, dlatent, iteration):
     resolution = parse_resolution(model_name)
 
     img = image_reader(source_image, resize=resolution)  # (1,3,1024,1024) -1~1
@@ -47,7 +47,6 @@ def optimize_style(source_image, model, model_name, gan_type, dlatent, iteration
     optimizer = optim.Adam({w}, lr=0.01, betas=(0.9, 0.999), eps=1e-8)
 
     for i in range(iteration):
-        pb.progress(i / iteration)
         optimizer.zero_grad()
         synth_img = forward(model, gan_type, w)
         synth_img = (synth_img + 1.0) / 2.0

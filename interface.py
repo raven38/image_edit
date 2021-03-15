@@ -132,10 +132,9 @@ def main():
         state.code_idx = 0
         state.codes = base_codes[0:1]
 
-    bar = st.progress(0.0)
     if button_opt_placeholder.button('Optimize', key=0):
         iteration = 500
-        state.codes = optimize_style(aligned_image_path, model, model_name, gan_type, base_codes, iteration, bar)
+        state.codes = optimize_style(aligned_image_path, model, model_name, gan_type, base_codes, iteration)
 
     if button_placeholder.button('Random', key=0):
         state.code_idx += 1
