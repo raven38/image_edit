@@ -5,6 +5,7 @@ The repository contains GAN-based image editing.
 Demo is avaiable on [Colab](https://colab.research.google.com/github/raven38/image_edit/blob/master/image_edit_demo.ipynb).
 
 ![demo](./demo.gif)
+
 The [demo video](https://drive.google.com/file/d/1OfDFguZtf4cNcJ32FRNmeW1Aq3IDNN2S/view?usp=sharing) (long version) is available. 
 
 ## Interface
