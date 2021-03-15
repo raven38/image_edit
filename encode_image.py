@@ -47,7 +47,7 @@ def optimize_style(source_image, model, model_name, gan_type, dlatent, iteration
     w = to_tensor(dlatent).requires_grad_()
     optimizer = optim.Adam({w}, lr=0.01, betas=(0.9, 0.999), eps=1e-8)
 
-    for i in range(progress_bar(iteration)):
+    for i in progress_bar(range(iteration)):
         optimizer.zero_grad()
         synth_img = forward(model, gan_type, w)
         synth_img = (synth_img + 1.0) / 2.0
